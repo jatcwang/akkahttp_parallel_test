@@ -1,4 +1,4 @@
-# Akka-http parallel test
+requests are waiting when all connections are in use. That queue is not allowed to be unbounded, so you need to adjust your client code to "backpressure" accordingly.# Akka-http parallel test
 
 Test is a test project showing the behaviour of `akka.http.host-connection-pool.max-open-requests` setting
 
@@ -23,3 +23,5 @@ You will notice:
 or not gets counted. Thus we can adjust this number to fit what we think the queue size needs to be
 during a burst of requests, and any application code can just send as many requests as it needs to without doing its own
 rate limiting (maybe not big list views that performs additional enrichments for each item)
+
+Another discussion comfirming this behaviour: https://gitter.im/akka/akka?at=5de67c2a8e906a1c8d61b28c
